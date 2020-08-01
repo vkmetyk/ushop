@@ -149,8 +149,9 @@ header * {
     border-radius: 50px;
     background-color: #a7d968;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 14px;
     color: #fff;
+    padding: 5px;
 }
 
 /* Site-body */
@@ -253,10 +254,97 @@ header * {
     -webkit-box-direction: reverse;
 }
 
+/* Sidebar */
+
 .sidebar {
-    background: #fff; /* tmp, must be transparent */
+    /*background: transparent;*/
+    /*background: #5FB9A5;*/
     border-radius: 9px;
+    padding: 0;
 }
+
+.sidebar > div, #filters > div {
+    padding: 0;
+}
+
+#filters > div {
+    padding-bottom: 10px;
+}
+
+.filter-button {
+    border-radius: 9px;
+    box-shadow: none !important;
+    font-family: 'Gotham Pro Regular', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: left;
+    margin: 0;
+    padding-left: 15px;
+    width: 100%;
+    height: 50px;
+    background-color: #dedede;
+    position: relative;
+}
+
+.filter-button:before {
+    transition: 0.2s;
+    background-image: url("../assets/images/down-arrow.png");
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+}
+
+.filter-button[aria-expanded="true"] {
+    border-radius: 9px 9px 0 0;
+}
+
+.filter-button[aria-expanded="true"]:before {
+    transform: rotate(180deg);
+}
+
+.filter-block {
+    background: #fff;
+    border-radius: 0 0 9px 9px;
+    display: grid;
+    justify-content: center;
+    width: 100%;
+}
+
+.filter-block > div {
+    padding: 15px;
+}
+
+.filter-block input {
+    border: 0;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+#price-pick-block > div {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+
+#price-pick-block label {
+    align-items: flex-end;
+    display: flex;
+    line-height: 1;
+    margin: 5px;
+}
+
+#price-pick-block input {
+    line-height: 0.5;
+    margin-left: 10px;
+    width: 50px;
+}
+
+/**/
 
 .category-view {
     max-width: 100%;
