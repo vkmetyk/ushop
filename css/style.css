@@ -20,10 +20,6 @@
 
 /* Common styles */
 
-body {
-    background-color: #ededed;
-}
-
 ul, li {
     text-decoration: none;
     list-style: none;
@@ -31,6 +27,7 @@ ul, li {
 
 * {
     font-family: 'Gotham Pro Light', Arial, Helvetica, sans-serif;
+    outline: none !important;
 }
 
 *:focus {
@@ -46,6 +43,15 @@ img {
     border-style: none;
     max-width: 100%;
     height: auto;
+}
+
+.wrapper {
+    background-color: #ededed;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
 }
 
 .container {
@@ -66,6 +72,10 @@ img {
     color: #ff3737;
 }
 
+header *, footer * {
+    text-decoration: none;
+}
+
 /* Header */
 
 header {
@@ -75,14 +85,6 @@ header {
 
 #header-menu > div {
     padding-bottom: 20px;
-}
-
-header * {
-    text-decoration: none;
-}
-
-#header-menu {
-
 }
 
 .header-right {
@@ -118,10 +120,10 @@ header * {
     right: 0;
 }
 
-.search-button > svg {
+.search-button > img {
     position: absolute;
-    width: 22px;
-    height: 22px;
+    width: 23px;
+    height: 23px;
     right: 10px;
     top: calc(50% - 11px);
     opacity: 80%;
@@ -344,6 +346,9 @@ header * {
     width: 50px;
 }
 
+.price-from {justify-self: start;}
+.price-to {justify-self: end;}
+
 /**/
 
 .category-view {
@@ -373,10 +378,28 @@ header * {
     height: 180px;
     display: grid;
     justify-content: center;
+    position: relative;
+    transition: 0.5s;
+    margin-bottom: 10px;
 }
 
 .product-image > img {
+    position: relative;
     max-height: 180px;
+}
+
+.product-image::after {
+    opacity: 0;
+    background: #a8d969;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 0.2s;
+}
+
+.product-image:hover::after {
+    opacity: 80%;
 }
 
 .product-name {
@@ -425,6 +448,142 @@ header * {
 .add-to-cart-block img {
     width: 30px;
     height: 30px;
+}
+
+/* toolbar-bottom */
+
+.toolbar-bottom {
+    padding: 0;
+}
+
+.toolbar-bottom > * {
+    padding: 0;
+}
+
+.load-more-container {
+    display: flex;
+    height: 44px;
+    justify-content: center;
+}
+
+.load-more {
+    background: #dedede;
+    border: 0;
+    border-radius: 9px;
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    height: 100%;
+    right: 0;
+    font-size: 16px;
+}
+
+.load-more > span {
+    position: relative;
+    padding-right: 24px;
+}
+
+.load-more img {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 0;
+    top: calc(50% - 7px);
+    opacity: 80%;
+}
+
+/* pagination */
+
+.pagination {
+    border-top: 1px solid #dedede;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 44px;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.pagination > .button {
+    align-items: center;
+    background: #fff;
+    border-radius: 9px;
+    cursor: pointer;
+    display: flex;
+    height: 44px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.pagination > .button > img {
+    width: 24px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.pagination > .button-left > img {
+    transform: rotate(180deg);
+}
+
+.pagination-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 44px;
+    padding: 0;
+    margin: 0 8px;
+}
+
+.pagination-item {
+    margin: 0 5px;
+    padding: 0;
+    border: 0;
+    background: #dedede;
+    border-radius: 9px;
+    width: 44px;
+    height: 100%;
+    vertical-align: baseline;
+    position: relative;
+}
+
+.pagination-item:last-child {
+    margin-left: 54px;
+}
+
+.pagination-item:last-child::before {
+    content: "...";
+    position: absolute;
+    font-size: 22px;
+    letter-spacing: 5px;
+    left: -42.5px;
+    bottom: -6px;
+}
+
+.pagination-link {
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 100%;
+    color: #212529;
+    line-height: 48px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* footer */
+
+footer {
+    position: relative;
+    background: #212529;
+    width: 100%;
+    height: 200px;
+    bottom: 0;
+    margin-top: auto;
 }
 
 /* media rules */
@@ -487,5 +646,11 @@ header * {
     }
     .category-view {
         margin: 25px 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .pagination-list > * {
+        display: none;
     }
 }
