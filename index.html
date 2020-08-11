@@ -15,232 +15,239 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<div class="wrapper">
-  <header id="header">
-    <div class="container py-2">
-      <div id="header-menu" class="row">
-        <div class="col-12 col-md-4">
-          <a href="index.html" class="logo navbar-brand">
-            <img src="./assets/images/logo.png" alt="Logo">
-          </a>
-        </div>
-        <div class="header-right col-12 col-md-8">
-          <form class="search-container" onsubmit="search();">
-            <input class="search-input" type="text" placeholder="Search..">
-            <button class="search-button" type="submit">
-              <img src="./assets/images/search.png" alt="search">
-            </button>
-          </form>
-          <div class="cart-container pl-3 pl-md-4">
-            <a href="#" class="cart_info">
-              <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -31 512.00026 512" width="44px">
-                <g transform="matrix(0.989901 0 0 0.989901 2.58534 2.27227)">
-                  <path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"
-                        data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
-                  <path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"
-                        data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
-                  <path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"
-                        data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
-                </g>
-              </svg>
-              <span class="cart_counter">1</span>
+  <div class="wrapper">
+    <header id="header">
+      <div class="container py-2">
+        <div id="header-menu" class="row">
+          <div class="col-12 col-md-4">
+            <a href="index.html" class="logo navbar-brand">
+              <img src="./assets/images/logo.png" alt="Logo">
             </a>
           </div>
+          <div class="header-right col-12 col-md-8">
+            <form class="search-container" onsubmit="search();">
+              <input class="search-input" type="text" placeholder="Search..">
+              <button class="search-button" type="submit">
+                <img src="./assets/images/search.png" alt="search">
+              </button>
+            </form>
+            <div class="cart-container pl-3 pl-md-4">
+              <a href="#" class="cart_info">
+                <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -31 512.00026 512" width="44px">
+                  <g transform="matrix(0.989901 0 0 0.989901 2.58534 2.27227)">
+                    <path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"
+                          data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+                    <path d="m150 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"
+                          data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+                    <path d="m362 405c0 24.8125 20.1875 45 45 45s45-20.1875 45-45-20.1875-45-45-45-45 20.1875-45 45zm45-15c8.269531 0 15 6.730469 15 15s-6.730469 15-15 15-15-6.730469-15-15 6.730469-15 15-15zm0 0"
+                          data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
+                  </g>
+                </svg>
+                <span class="cart_counter">1</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <section class="mb-4">
-    <div class="container">
-      <div class="row">
-        <ul class="breadcrumbs col-12 py-2 px-4">
-          <li class="breadcrumbs-elem">
-            <a class="breadcrumbs-link" href="#">
-              <svg style="margin-bottom: 2px" height="26px" viewBox="0 1 511 511.999" width="24px" xmlns="http://www.w3.org/2000/svg">
-                <path d="m498.699219 222.695312c-.015625-.011718-.027344-.027343-.039063-.039062l-208.855468-208.847656c-8.902344-8.90625-20.738282-13.808594-33.328126-13.808594-12.589843 0-24.425781 4.902344-33.332031 13.808594l-208.746093 208.742187c-.070313.070313-.144532.144531-.210938.214844-18.28125 18.386719-18.25 48.21875.089844 66.558594 8.378906 8.382812 19.441406 13.234375 31.273437 13.746093.484375.046876.96875.070313 1.457031.070313h8.320313v153.695313c0 30.417968 24.75 55.164062 55.167969 55.164062h81.710937c8.285157 0 15-6.71875 15-15v-120.5c0-13.878906 11.292969-25.167969 25.171875-25.167969h48.195313c13.878906 0 25.167969 11.289063 25.167969 25.167969v120.5c0 8.28125 6.714843 15 15 15h81.710937c30.421875 0 55.167969-24.746094 55.167969-55.164062v-153.695313h7.71875c12.585937 0 24.421875-4.902344 33.332031-13.8125 18.359375-18.367187 18.367187-48.253906.027344-66.632813zm-21.242188 45.421876c-3.238281 3.238281-7.542969 5.023437-12.117187 5.023437h-22.71875c-8.285156 0-15 6.714844-15 15v168.695313c0 13.875-11.289063 25.164062-25.167969 25.164062h-66.710937v-105.5c0-30.417969-24.746094-55.167969-55.167969-55.167969h-48.195313c-30.421875 0-55.171875 24.75-55.171875 55.167969v105.5h-66.710937c-13.875 0-25.167969-11.289062-25.167969-25.164062v-168.695313c0-8.285156-6.714844-15-15-15h-22.328125c-.234375-.015625-.464844-.027344-.703125-.03125-4.46875-.078125-8.660156-1.851563-11.800781-4.996094-6.679688-6.679687-6.679688-17.550781 0-24.234375.003906 0 .003906-.003906.007812-.007812l.011719-.011719 208.847656-208.839844c3.234375-3.238281 7.535157-5.019531 12.113281-5.019531 4.574219 0 8.875 1.78125 12.113282 5.019531l208.800781 208.796875c.03125.03125.066406.0625.097656.09375 6.644531 6.691406 6.632813 17.539063-.03125 24.207032zm0 0"/>
-              </svg>
-            </a>
-          </li>
-          <li class="breadcrumbs-elem">
-            <a href="#" class="breadcrumbs-link"><span>Products</span></a>
-          </li>
-          <li class="breadcrumbs-elem">
-            <a href="#" class="breadcrumbs-link"><span>Test</span></a>
-          </li>
-        </ul>
+    </header>
+    <section class="mb-4">
+      <div class="container">
+        <div class="row">
+          <ul class="breadcrumbs col-12 py-2 px-4">
+            <li class="breadcrumbs-elem">
+              <a class="breadcrumbs-link" href="#">
+                <svg style="margin-bottom: 2px" height="26px" viewBox="0 1 511 511.999" width="24px" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m498.699219 222.695312c-.015625-.011718-.027344-.027343-.039063-.039062l-208.855468-208.847656c-8.902344-8.90625-20.738282-13.808594-33.328126-13.808594-12.589843 0-24.425781 4.902344-33.332031 13.808594l-208.746093 208.742187c-.070313.070313-.144532.144531-.210938.214844-18.28125 18.386719-18.25 48.21875.089844 66.558594 8.378906 8.382812 19.441406 13.234375 31.273437 13.746093.484375.046876.96875.070313 1.457031.070313h8.320313v153.695313c0 30.417968 24.75 55.164062 55.167969 55.164062h81.710937c8.285157 0 15-6.71875 15-15v-120.5c0-13.878906 11.292969-25.167969 25.171875-25.167969h48.195313c13.878906 0 25.167969 11.289063 25.167969 25.167969v120.5c0 8.28125 6.714843 15 15 15h81.710937c30.421875 0 55.167969-24.746094 55.167969-55.164062v-153.695313h7.71875c12.585937 0 24.421875-4.902344 33.332031-13.8125 18.359375-18.367187 18.367187-48.253906.027344-66.632813zm-21.242188 45.421876c-3.238281 3.238281-7.542969 5.023437-12.117187 5.023437h-22.71875c-8.285156 0-15 6.714844-15 15v168.695313c0 13.875-11.289063 25.164062-25.167969 25.164062h-66.710937v-105.5c0-30.417969-24.746094-55.167969-55.167969-55.167969h-48.195313c-30.421875 0-55.171875 24.75-55.171875 55.167969v105.5h-66.710937c-13.875 0-25.167969-11.289062-25.167969-25.164062v-168.695313c0-8.285156-6.714844-15-15-15h-22.328125c-.234375-.015625-.464844-.027344-.703125-.03125-4.46875-.078125-8.660156-1.851563-11.800781-4.996094-6.679688-6.679687-6.679688-17.550781 0-24.234375.003906 0 .003906-.003906.007812-.007812l.011719-.011719 208.847656-208.839844c3.234375-3.238281 7.535157-5.019531 12.113281-5.019531 4.574219 0 8.875 1.78125 12.113282 5.019531l208.800781 208.796875c.03125.03125.066406.0625.097656.09375 6.644531 6.691406 6.632813 17.539063-.03125 24.207032zm0 0"/>
+                </svg>
+              </a>
+            </li>
+            <li class="breadcrumbs-elem">
+              <a href="#" class="breadcrumbs-link"><span>Products</span></a>
+            </li>
+            <li class="breadcrumbs-elem">
+              <a href="#" class="breadcrumbs-link"><span>Test</span></a>
+            </li>
+          </ul>
 
-        <div class="toolbar-top col-12 pb-3 row">
-          <div class="col-6">
-            <button class="filter-show-button navbar-toggler navbar-light floar-left" data-toggle="collapse" data-target=".sidebar">
-              Filters
-            </button>
+          <div class="toolbar-top col-12 pb-3 row">
+            <div class="col-6">
+              <button class="filter-show-button navbar-toggler navbar-light floar-left" data-toggle="collapse" data-target=".sidebar">
+                Filters
+              </button>
+            </div>
+            <div class="col-6">
+              <select class="select-css float-right">
+                <option disabled hidden selected>By rate</option>
+                <option value="1: name">By name</option>
+                <option value="2: cheap">From cheap to expensive</option>
+                <option value="3: expensive">From expensive to cheap</option>
+              </select>
+            </div>
           </div>
-          <div class="col-6">
-            <select class="select-css float-right">
-              <option disabled hidden selected>By rate</option>
-              <option value="1: name">By name</option>
-              <option value="2: cheap">From cheap to expensive</option>
-              <option value="3: expensive">From expensive to cheap</option>
-            </select>
-          </div>
-        </div>
 
-        <div class="col-12 row py-2">
-          <div class="sidebar collapse col-12 col-md">
+          <div class="col-12 row py-2">
+            <div class="sidebar collapse col-12 col-md">
 
-            <div id="filters" class="row">
+              <div id="filters" class="row">
 
-              <div class="col-12 position-relative">
-                <button class="filter-button navbar-toggler navbar-light" data-toggle="collapse" data-target="#price-pick-block" aria-expanded="true">
-                  Price
-                </button>
-                <div id="price-pick-block" class="filter-block collapse show">
-                  <div>
-                    <div class="price-from">
-                      <label>from<input type="number" min="0" max="0" value=""></label>
-                    </div>
-                    <div class="price-to">
-                      <label>to<input type="number" min="1" max="0" value=""></label>
+                <div class="col-12 position-relative">
+                  <button class="filter-button navbar-toggler navbar-light" data-toggle="collapse" data-target="#price-pick-block" aria-expanded="true">
+                    Price
+                  </button>
+                  <div id="price-pick-block" class="filter-block collapse show">
+                    <div>
+                      <div class="price-from">
+                        <label>from<input type="number" min="0" max="0" value=""></label>
+                      </div>
+                      <div class="price-to">
+                        <label>to<input type="number" min="1" max="0" value=""></label>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="col-12 position-relative">
-                <button class="filter-button navbar-toggler navbar-light" data-toggle="collapse" data-target="#category-pick-block" aria-expanded="false">
-                  Category
-                </button>
-                <div id="category-pick-block" class="filter-block collapse">
-                  <div>
-                    Hello Category
+                <div class="col-12 position-relative">
+                  <button class="filter-button navbar-toggler navbar-light" data-toggle="collapse" data-target="#category-pick-block" aria-expanded="false">
+                    Category
+                  </button>
+                  <div id="category-pick-block" class="filter-block collapse">
+                    <div>
+                      Hello Category
+                    </div>
                   </div>
                 </div>
+
               </div>
 
             </div>
 
-          </div>
+            <div class="category-view col-12 col-md">
+              <!-- Here will be all products -->
+              <div class="category-products mb-4">
 
-          <div class="category-view col-12 col-md">
-            <!-- Here will be all products -->
-            <div class="category-products mb-4">
+                <div class="product-container">
+                  <div class="product">
+                    <span class="product-id">code: 100</span>
+                    <a href="#">
+                      <div class="product-image">
+                        <img src="assets/images/default.png" alt="Image" class="img-fluid">
+                      </div>
+                    </a>
+                    <span class="product-name">Name</span>
+                    <span class="product-category">category</span>
+                    <span class="product-price">1900 uah</span>
+                    <div class="product-footer">
+                      <div class="available-block">
+                        <span class="true">available</span>
+                      </div>
+                      <div class="add-to-cart-block">
+                        <button>
+                          <img src="assets/images/add-to-cart.png" alt="Add to cart">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-              <div class="product-container">
-                <div class="product">
-                  <a href="#">
-                    <div class="product-image">
-                      <img src="assets/images/default.png" alt="Image" class="img-fluid">
+                <div class="product-container">
+                  <div class="product">
+                    <a href="#">
+                      <div class="product-image">
+                        <img src="assets/images/default.png" alt="Image" class="img-fluid">
+                      </div>
+                    </a>
+                    <span class="product-name">Name</span>
+                    <span class="product-category">category</span>
+                    <span class="product-price">1900 uah</span>
+                    <div class="product-footer">
+                      <div class="available-block">
+                        <span class="true">available</span>
+                      </div>
+                      <div class="add-to-cart-block">
+                        <button>
+                          <img src="assets/images/added-to-cart.png" alt="Added to cart">
+                        </button>
+                      </div>
                     </div>
-                  </a>
-                  <span class="product-name">Name</span>
-                  <span class="product-category">category</span>
-                  <span class="product-price">1900 uah</span>
-                  <div class="product-footer">
-                    <div class="available-block">
-                      <span class="true">available</span>
-                    </div>
-                    <div class="add-to-cart-block">
-                      <button>
-                        <img src="assets/images/add-to-cart.png" alt="Add to cart">
-                      </button>
+                  </div>
+                </div>
+
+                <div class="product-container">
+                  <div class="product">
+                    <a href="#">
+                      <div class="product-image">
+                        <img src="assets/images/default.png" alt="Image" class="img-fluid">
+                      </div>
+                    </a>
+                    <span class="product-name">Name</span>
+                    <span class="product-category">category</span>
+                    <span class="product-price">1900 uah</span>
+                    <div class="product-footer">
+                      <div class="available-block">
+                        <span class="false">not available</span>
+                      </div>
+                      <div class="add-to-cart-block">
+                        <button>
+                          <img src="assets/images/cancel.png" alt="Add to cart">
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="product-container">
-                <div class="product">
-                  <a href="#">
-                    <div class="product-image">
-                      <img src="assets/images/default.png" alt="Image" class="img-fluid">
-                    </div>
-                  </a>
-                  <span class="product-name">Name</span>
-                  <span class="product-category">category</span>
-                  <span class="product-price">1900 uah</span>
-                  <div class="product-footer">
-                    <div class="available-block">
-                      <span class="true">available</span>
-                    </div>
-                    <div class="add-to-cart-block">
-                      <button>
-                        <img src="assets/images/added-to-cart.png" alt="Added to cart">
-                      </button>
-                    </div>
-                  </div>
+              <!-- Here will be page numbers and load more -->
+              <div class="toolbar-bottom row">
+  <!--              <p>toolbar-bottom</p>-->
+                <div class="show-more-container col-12 position-relative mb-4">
+                  <button class="show-more">
+                    <span>
+                        Show more
+                        <img src="./assets/images/plus.png" alt="+">
+                    </span>
+                  </button>
                 </div>
-              </div>
-
-              <div class="product-container">
-                <div class="product">
-                  <a href="#">
-                    <div class="product-image">
-                      <img src="assets/images/default.png" alt="Image" class="img-fluid">
-                    </div>
+                <div class="pagination col-12 position-relative pt-4">
+                  <a class="button button-left">
+                    <img src="./assets/images/right-arrow.png" alt="page-before">
                   </a>
-                  <span class="product-name">Name</span>
-                  <span class="product-category">category</span>
-                  <span class="product-price">1900 uah</span>
-                  <div class="product-footer">
-                    <div class="available-block">
-                      <span class="false">not available</span>
-                    </div>
-                    <div class="add-to-cart-block">
-                      <button>
-                        <img src="assets/images/cancel.png" alt="Add to cart">
-                      </button>
-                    </div>
-                  </div>
+                  <ul class="pagination-list">
+                    <li class="pagination-item"><a class="pagination-link">1</a></li>
+                    <li class="pagination-item"><a class="pagination-link">2</a></li>
+                    <li class="pagination-item"><a class="pagination-link">3</a></li>
+                    <li class="pagination-item"><a class="pagination-link">24</a></li>
+                  </ul>
+                  <a class="button">
+                    <img src="./assets/images/right-arrow.png" alt="page-after">
+                  </a>
                 </div>
               </div>
 
             </div>
-            <!-- Here will be page numbers and load more -->
-            <div class="toolbar-bottom row">
-<!--              <p>toolbar-bottom</p>-->
-              <div class="load-more-container col-12 position-relative mb-4">
-                <button class="load-more">
-                  <span>
-                      Show more
-                      <img src="./assets/images/plus.png" alt="+">
-                  </span>
-                </button>
-              </div>
-              <div class="pagination col-12 position-relative pt-4">
-                <a class="button button-left">
-                  <img src="./assets/images/right-arrow.png" alt="page-before">
-                </a>
-                <ul class="pagination-list">
-                  <li class="pagination-item"><a class="pagination-link">1</a></li>
-                  <li class="pagination-item"><a class="pagination-link">2</a></li>
-                  <li class="pagination-item"><a class="pagination-link">3</a></li>
-                  <li class="pagination-item"><a class="pagination-link">24</a></li>
-                </ul>
-                <a class="button">
-                  <img src="./assets/images/right-arrow.png" alt="page-after">
-                </a>
-              </div>
-            </div>
+          </div>
 
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="container py-2">
+        <div id="footer-menu" class="row">
+          <div class="col-12 col-md-4">
+            <!-- content -->
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
-
-  <footer id="footer">
-    <div class="container py-2">
-      <div id="footer-menu" class="row">
-        <div class="col-12 col-md-4">
-<!--          content -->
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
+    </footer>
+  </div>
 
   <!-- scripts -->
+  <script src="./js/cart.js"></script>
+  <script src="./js/catalog.js"></script>
+  <script src="./js/filters.js"></script>
+  <script src="./js/product.js"></script>
+  <script src="./js/shop.js"></script>
+  <script src="./js/storage.js"></script>
+  <script src="./js/events.js"></script>
   <script src="./js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>

@@ -13,17 +13,17 @@ public:
         return _products;
     }
 
-//    void add(Product product) {
-//        auto it = std::find_if(_products.begin(), _products.end(), [product](auto p) {
-//            return product.compare(p);
-//        });
-//
-//        if (it != _products.end()) {
-//            // if we already have this product in storage
-//            it->add(product.count());
-//        } else {
-//            // new product
-//            _products.push_back(product);
-//        }
-//    }
+    void add(Product product) {
+        auto it = std::find_if(_products.begin(), _products.end(), [product](auto p) {
+            return product.compare(p);
+        });
+
+        if (it != _products.end()) {
+            // if we already have this product in storage
+            it->add(product.count());
+        } else {
+            // new product
+            _products.push_back(product);
+        }
+    }
 };
