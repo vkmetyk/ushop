@@ -11,8 +11,9 @@ class Shop {
     this._storage = new Storage(products);
     this._filters = new Filters(filters);
 
-    this._catalog.build(products, pageSize, filters);
-    this.show(this._catalog.changePage(0));
+    this._catalog.build(products, pageSize, this._filters.filters());
+    this.pageSize = pageSize;
+    this.changePage(0);
     addEvents();
   }
 
@@ -20,22 +21,21 @@ class Shop {
     this._catalog.build(this._storage.products(), this.pageSize, this._filters.filters());
   }
   changePage(page) {
-    document.querySelector(".category-products").innerHTML = "";
-    this.show(this._catalog.changePage(page));
+    let pageIndex = this._catalog.changePage(page);
+
+    if (pageIndex !== -1) {
+      document.querySelector(".category-products").innerHTML = "";
+      this.show(pageIndex);
+    }
   }
   showMore() {
-    this.show(this._catalog.changePage(this._catalog.page() + 1));
+    this.show(this._catalog.changePage(this._catalog.currentPage() + 1));
   }
   show(productsForShow) {
-    if (productsForShow) {
-      console.dir(productsForShow);
-      let showContainer = document.querySelector(".category-products");
-
-      productsForShow.forEach((product) => {
-        let productHtml = createProductHtml(product, this._cart._productAmount.has(product));
-
-        showContainer.insertAdjacentHTML("beforeend", productHtml);
-      });
+    if (productsForShow && productsForShow !== -1) {
+      showProducts(productsForShow, this);
+      showCart(this._cart);
+      showPagination(this);
     }
   }
 }

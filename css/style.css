@@ -139,7 +139,7 @@ header {
     color: #fff;
 }
 
-.cart_counter {
+.cart-counter {
     font-family: "Gotham Pro Regular", sans-serif;
     position: absolute;
     right: -5px;
@@ -154,6 +154,27 @@ header {
     line-height: 14px;
     color: #fff;
     padding: 5px;
+}
+
+.cart-order-container {
+    content: "";
+    display: grid;
+    position: fixed;
+    width: 100%;
+    top: 200px;
+    z-index: 100;
+}
+
+#cart-order-block {
+    background: #2b2e30;
+    border-radius: 9px;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    height: 500px;
+    max-width: calc(768px - 40px);
 }
 
 /* Site-body */
@@ -590,6 +611,12 @@ header {
     line-height: 48px;
     text-decoration: none;
     text-align: center;
+}
+
+.current-page {
+    border: 1px solid #a6d969;
+    border-radius: 9px;
+    font-weight: bold;
 }
 
 /* footer */

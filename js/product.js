@@ -53,32 +53,3 @@ class Product {
   }
 }
 
-function createProductHtml(product, countInCart) {
-  let isAvailable = product.count() - countInCart > 0 ? 1 : 0;
-
-  return `
-      <div class="product-container">
-        <div class="product">
-          <a href="#">
-            <span class="product-id">code: ${product.id()}</span>
-            <div class="product-image">
-              <img src="${product.image() && product.image().length > 0 ? product.image() : "assets/images/default.png"}" alt="Image" class="img-fluid">
-            </div>
-          </a>
-          <span class="product-name">${product.name()}</span>
-          <span class="product-category">${product.category()}</span>
-          <span class="product-price">${product.price()} uah</span>
-          <div class="product-footer">
-            <div class="available-block">
-              <span class="${isAvailable ? "true" : "false"}">${isAvailable ? "available" : "not available"}</span>
-            </div>
-            <div class="add-to-cart-block">
-              <button class="${isAvailable ? "add-to-cart" : ""}">
-                <img src="assets/images/${countInCart > 0 ? "added-to-cart.png" : isAvailable ? "add-to-cart.png" : "cancel.png"}" alt="Add to cart">
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-  `;
-}

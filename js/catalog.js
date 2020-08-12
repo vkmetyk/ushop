@@ -10,8 +10,8 @@ class Catalog {
     this._pages[this._currentPage] = [];
     let size = 0;
 
-    products.filter((elem) => {
-      if (filters.every((currentFilter) => currentFilter(elem))) {
+    products = products.filter((elem) => {
+      if (filters.length === 0 || filters.every((currentFilter) => currentFilter(elem))) {
         return true;
       }
     });
@@ -27,13 +27,17 @@ class Catalog {
     });
   }
 
-  page() {
+  pages() {
+    return this._pages.length;
+  }
+  currentPage() {
     return this._currentPage;
   }
   changePage(index) {
-    if (this._pages.length >= index) {
+    if (this._pages.length > index && index >= 0) {
       this._currentPage = index;
       return this._pages[index];
     }
+    return -1;
   }
 }

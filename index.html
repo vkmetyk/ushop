@@ -25,12 +25,12 @@
             </a>
           </div>
           <div class="header-right col-12 col-md-8">
-            <form class="search-container" onsubmit="search();">
+            <div class="search-container">
               <input class="search-input" type="text" placeholder="Search..">
               <button class="search-button" type="submit">
                 <img src="./assets/images/search.png" alt="search">
               </button>
-            </form>
+            </div>
             <div class="cart-container pl-3 pl-md-4">
               <a href="#" class="cart_info">
                 <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -31 512.00026 512" width="44px">
@@ -43,9 +43,17 @@
                           data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
                   </g>
                 </svg>
-                <span class="cart_counter">1</span>
+                <span class="cart-counter">0</span>
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+      <!-- cart drop block -->
+      <div class="cart-order-container">
+        <div id="cart-order-block">
+          <div class="cart-order-header">
+            <span class="cart-counter">0</span>
           </div>
         </div>
       </div>
@@ -113,6 +121,19 @@
                   <div id="category-pick-block" class="filter-block collapse">
                     <div>
                       Hello Category
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-12 position-relative">
+                  <button class="filter-button navbar-toggler navbar-light" data-toggle="collapse" data-target="#availability-block" aria-expanded="false">
+                    Availability
+                  </button>
+                  <div id="availability-block" class="filter-block collapse">
+                    <div>
+                      <span>Show only available ?</span>
+                      <input id="availability-input" type="checkbox">
+                      <label for="availability-input"></label>
                     </div>
                   </div>
                 </div>
@@ -207,16 +228,16 @@
                   </button>
                 </div>
                 <div class="pagination col-12 position-relative pt-4">
-                  <a class="button button-left">
+                  <a class="button button-left" data-elem="previous">
                     <img src="./assets/images/right-arrow.png" alt="page-before">
                   </a>
                   <ul class="pagination-list">
-                    <li class="pagination-item"><a class="pagination-link">1</a></li>
+                    <li class="pagination-item"><a class="pagination-link current-page">1</a></li>
                     <li class="pagination-item"><a class="pagination-link">2</a></li>
                     <li class="pagination-item"><a class="pagination-link">3</a></li>
                     <li class="pagination-item"><a class="pagination-link">24</a></li>
                   </ul>
-                  <a class="button">
+                  <a class="button" data-elem="next">
                     <img src="./assets/images/right-arrow.png" alt="page-after">
                   </a>
                 </div>
@@ -241,6 +262,7 @@
   </div>
 
   <!-- scripts -->
+  <script src="./js/htmlCreation.js"></script>
   <script src="./js/cart.js"></script>
   <script src="./js/catalog.js"></script>
   <script src="./js/filters.js"></script>
