@@ -10,6 +10,7 @@ function addEvents() {
 
 function cartEvents() {
   let cartIcon = document.querySelector(".cart-container");
+  let cartOrderContainer = document.querySelector(".cart-order-container");
 
   if (cartIcon) {
     cartIcon.onclick = (event) => {
@@ -17,6 +18,16 @@ function cartEvents() {
 
       if (cartContainer)
         cartContainer.style.display = cartContainer.style.display === "grid" ? "none" : "grid";
+    };
+  }
+  if (cartOrderContainer) {
+    cartOrderContainer.onclick = (event) => {
+      if (event.target.classList.contains("cart-order-container")) {
+        let backgroundContainer = document.querySelector(".cart-order-container");
+
+        if (backgroundContainer)
+          backgroundContainer.style.display = backgroundContainer.style.display === "grid" ? "none" : "grid";
+      }
     };
   }
 }
