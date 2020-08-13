@@ -1,21 +1,21 @@
 "use strict"
 
 class Catalog {
-  _pages = [];
-  _currentPage = 0;
-
-  build(products, pageSize, filters) {
+  constructor() {
+    this._pages = [];
+    this._currentPage = 0;
+  }
+  build(shop, products, pageSize, filters) {
     this._pages = [];
     this._currentPage = 0;
     this._pages[this._currentPage] = [];
     let size = 0;
 
     products = products.filter((elem) => {
-      if (filters.length === 0 || filters.every((currentFilter) => currentFilter(elem))) {
+      if (filters.length === 0 || filters.every((currentFilter) => currentFilter(shop, elem))) {
         return true;
       }
     });
-
     products.forEach((elem) => {
       if (size >= pageSize) {
         size = 0;
@@ -25,6 +25,7 @@ class Catalog {
         size++;
       this._pages[this._currentPage].push(elem);
     });
+    setMinMax(this._pages);
   }
 
   pages() {
@@ -39,5 +40,15 @@ class Catalog {
       return this._pages[index];
     }
     return -1;
+  }
+  getProduct(id) {
+    if (id >= 0) {
+      for (let i = 0; i < this._pages.length; i++) {
+        let product = this._pages[i].find((product) => product.compare(id));
+
+        if (product !== undefined)
+          return product;
+      }
+    }
   }
 }

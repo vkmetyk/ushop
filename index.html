@@ -29,30 +29,11 @@
             <span>Total price:</span>
             <span class="total-price">0</span>
           </div>
+          <button class="cart-close" data-event="close_cart">
+            <img src="./assets/images/cancel.png" alt="close">
+          </button>
         </div>
-
-        <div class="cart-order-list">
-          <div class="product-in-cart">
-            <div class="img-block">
-              <img src="./assets/images/default.png" alt="image">
-            </div>
-            <div>
-              <span>Name</span>
-            </div>
-            <div>
-              <button class="increase-count">
-                <img src="./assets/images/plus.png" alt="+">
-              </button>
-              <button class="decrease-count">
-                <img src="./assets/images/minus.png" alt="-">
-              </button>
-            </div>
-            <div>
-              <span class="product-price">299 UAH</span>
-            </div>
-          </div>
-        </div>
-
+        <div class="cart-order-list"></div>
       </div>
     </div>
     <header id="header">
@@ -72,7 +53,7 @@
             </div>
             <div class="cart-container pl-3 pl-md-4">
               <a href="#" class="cart_info">
-                <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -31 512.00026 512" width="44px">
+                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -31 512.00026 512" width="40px">
                   <g transform="matrix(0.989901 0 0 0.989901 2.58534 2.27227)">
                     <path d="m164.960938 300.003906h.023437c.019531 0 .039063-.003906.058594-.003906h271.957031c6.695312 0 12.582031-4.441406 14.421875-10.878906l60-210c1.292969-4.527344.386719-9.394532-2.445313-13.152344-2.835937-3.757812-7.269531-5.96875-11.976562-5.96875h-366.632812l-10.722657-48.253906c-1.527343-6.863282-7.613281-11.746094-14.644531-11.746094h-90c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h77.96875c1.898438 8.550781 51.3125 230.917969 54.15625 243.710938-15.941406 6.929687-27.125 22.824218-27.125 41.289062 0 24.8125 20.1875 45 45 45h272c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-272c-8.269531 0-15-6.730469-15-15 0-8.257812 6.707031-14.976562 14.960938-14.996094zm312.152343-210.003906-51.429687 180h-248.652344l-40-180zm0 0"
                           data-original="#000000" class="active-path" data-old_color="#000000" fill="#FFFFFF"/>
@@ -136,10 +117,10 @@
                   <div id="price-pick-block" class="filter-block collapse show">
                     <div>
                       <div class="price-from">
-                        <label>from<input type="number" min="0" max="0" value=""></label>
+                        <label>from<input data-event="min_price" type="number" min="0" max="0" value=""></label>
                       </div>
                       <div class="price-to">
-                        <label>to<input type="number" min="1" max="0" value=""></label>
+                        <label>to<input data-event="max_price" type="number" min="1" max="0" value=""></label>
                       </div>
                     </div>
                   </div>
@@ -175,78 +156,7 @@
 
             <div class="category-view col-12 col-md">
               <!-- Here will be all products -->
-              <div class="category-products mb-4">
-
-                <div class="product-container">
-                  <div class="product">
-                    <span class="product-id">code: 100</span>
-                    <a href="#">
-                      <div class="product-image">
-                        <img src="assets/images/default.png" alt="Image" class="img-fluid">
-                      </div>
-                    </a>
-                    <span class="product-name">Name</span>
-                    <span class="product-category">category</span>
-                    <span class="product-price">1900 uah</span>
-                    <div class="product-footer">
-                      <div class="available-block">
-                        <span class="true">available</span>
-                      </div>
-                      <div class="add-to-cart-block">
-                        <button>
-                          <img src="assets/images/add-to-cart.png" alt="Add to cart">
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="product-container">
-                  <div class="product">
-                    <a href="#">
-                      <div class="product-image">
-                        <img src="assets/images/default.png" alt="Image" class="img-fluid">
-                      </div>
-                    </a>
-                    <span class="product-name">Name</span>
-                    <span class="product-category">category</span>
-                    <span class="product-price">1900 uah</span>
-                    <div class="product-footer">
-                      <div class="available-block">
-                        <span class="true">available</span>
-                      </div>
-                      <div class="add-to-cart-block">
-                        <button>
-                          <img src="assets/images/added-to-cart.png" alt="Added to cart">
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="product-container">
-                  <div class="product">
-                    <a href="#">
-                      <div class="product-image">
-                        <img src="assets/images/default.png" alt="Image" class="img-fluid">
-                      </div>
-                    </a>
-                    <span class="product-name">Name</span>
-                    <span class="product-category">category</span>
-                    <span class="product-price">1900 uah</span>
-                    <div class="product-footer">
-                      <div class="available-block">
-                        <span class="false">not available</span>
-                      </div>
-                      <div class="add-to-cart-block">
-                        <button>
-                          <img src="assets/images/cancel.png" alt="Add to cart">
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <div class="category-products mb-4"></div>
               <!-- Here will be page numbers and load more -->
               <div class="toolbar-bottom row">
   <!--              <p>toolbar-bottom</p>-->
@@ -262,12 +172,7 @@
                   <a class="button button-left" data-elem="previous">
                     <img src="./assets/images/right-arrow.png" alt="page-before">
                   </a>
-                  <ul class="pagination-list">
-                    <li class="pagination-item"><a class="pagination-link current-page">1</a></li>
-                    <li class="pagination-item"><a class="pagination-link">2</a></li>
-                    <li class="pagination-item"><a class="pagination-link">3</a></li>
-                    <li class="pagination-item"><a class="pagination-link">24</a></li>
-                  </ul>
+                  <ul class="pagination-list"></ul>
                   <a class="button" data-elem="next">
                     <img src="./assets/images/right-arrow.png" alt="page-after">
                   </a>

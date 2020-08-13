@@ -1,12 +1,9 @@
 "use strict"
 
 class Storage {
-  _products = [];
-
   constructor(products) {
-    this._products = products;
+    this._products = products ?? [];
   }
-
   products() {
     return this._products;
   }

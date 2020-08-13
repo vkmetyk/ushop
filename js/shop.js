@@ -1,30 +1,26 @@
 "use strict"
 
 class Shop {
-  _storage;
-  _filters;
-  _catalog = new Catalog();
-  _cart = new Cart();
-  pageSize = 0;
-
   constructor(products, pageSize, filters) {
     this._storage = new Storage(products);
-    this._filters = new Filters(filters);
+    this._filters = new Filters(filters, this._storage._products);
+    this._catalog = new Catalog();
+    this._cart = new Cart();
+    this.pageSize = pageSize ?? 0;
 
-    this._catalog.build(products, pageSize, this._filters.filters());
-    this.pageSize = pageSize;
+    this._catalog.build(this, this._storage.products(), this.pageSize, this._filters.filters());
     this.changePage(0);
     addEvents();
   }
-
   update() {
-    this._catalog.build(this._storage.products(), this.pageSize, this._filters.filters());
+    this._catalog.build(this, this._storage.products(), this.pageSize, this._filters.filters());
   }
   changePage(page) {
     let pageIndex = this._catalog.changePage(page);
 
     if (pageIndex !== -1) {
       document.querySelector(".category-products").innerHTML = "";
+      window.scrollTo(0, 0);
       this.show(pageIndex);
     }
   }

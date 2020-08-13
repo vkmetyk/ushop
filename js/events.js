@@ -11,6 +11,7 @@ function addEvents() {
 function cartEvents() {
   let cartIcon = document.querySelector(".cart-container");
   let cartOrderContainer = document.querySelector(".cart-order-container");
+  let cartClose = document.querySelectorAll(".cart-close");
 
   if (cartIcon) {
     cartIcon.onclick = (event) => {
@@ -27,6 +28,43 @@ function cartEvents() {
 
         if (backgroundContainer)
           backgroundContainer.style.display = backgroundContainer.style.display === "grid" ? "none" : "grid";
+      }
+    };
+    cartProductEvents(cartOrderContainer);
+  }
+  if (cartClose) {
+    cartClose.forEach((button) => {
+      button.onclick = (event) => {
+        if (event.target.closest(`[data-event="close_cart"]`) !== null) {
+          let cartContainer = document.querySelector(".cart-order-container");
+
+          if (cartContainer)
+            cartContainer.style.display = cartContainer.style.display === "grid" ? "none" : "grid";
+        }
+      };
+    });
+  }
+}
+
+function cartProductEvents(container) {
+  let productsContainer = container.querySelector(".cart-order-list");
+
+  if (productsContainer) {
+    productsContainer.onclick = (event) => {
+      let productId = event.target.closest(".product-in-cart")?.dataset.order_id;
+
+      if (productId !== undefined) {
+        let ourEvent = event.target.dataset.event ? event.target.dataset.event : event.target.parentElement.dataset.event;
+
+        if (ourEvent !== undefined) {
+          if (ourEvent === "increase") {
+            console.dir(shop._catalog.getProduct(+productId));
+            shop._cart.increase(shop._catalog.getProduct(+productId));
+          }
+          else if (ourEvent === "decrease") {
+            shop._cart.decrease(shop._catalog.getProduct(+productId));
+          }
+        }
       }
     };
   }
@@ -86,10 +124,10 @@ function productEvents() {
       event.target.parentElement.classList.contains("add-to-cart") ? event.target.parentElement : false;
 
     if (button !== false) {
-      let id = button.closest(".product").querySelector(".product-id");
+      let id = button.closest("[data-id]");
 
       if (id) {
-        id = Number(id.textContent.slice(5));
+        id = +id.dataset.id;
         let product = shop._storage.findProduct(id);
 
         if (product.count() > 0) {
