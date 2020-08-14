@@ -6,6 +6,7 @@ function addEvents() {
   productEvents();
   showMoreEvents();
   paginationEvents();
+  additionEvents();
 }
 
 function cartEvents() {
@@ -58,7 +59,6 @@ function cartProductEvents(container) {
 
         if (ourEvent !== undefined) {
           if (ourEvent === "increase") {
-            console.dir(shop._catalog.getProduct(+productId));
             shop._cart.increase(shop._catalog.getProduct(+productId));
           }
           else if (ourEvent === "decrease") {
@@ -74,17 +74,16 @@ function filterEvents() {
   let available = document.querySelector("#availability-input");
   let search = document.querySelector(".search-button");
   let sorter = document.querySelector(".select-css");
+  let priceFilterButton = document.querySelector("[data-event=\"price_filter\"]");
+  let priceFilterMin = document.querySelector("[data-event=\"min_price\"]");
+  let priceFilterMax = document.querySelector("[data-event=\"max_price\"]");
+  let categoryFilterBlock = document.querySelectorAll("#category-pick-block input");
 
   if (available) {
     available.onclick = (event) => {
-      for (let i = 0; i < shop._filters._filters.length; i++) {
-        if (shop._filters._filters[i][0] === availableFilter) {
-          shop._filters.update(i);
-          break;
-        }
-      }
+      shop._filters.update(availableFilter, available.checked);
       shop.update();
-      shop.changePage(0);
+      shop.changePage(0, true);
     };
   }
   if (search) {
@@ -113,6 +112,65 @@ function filterEvents() {
       shop.update();
       shop.changePage(0);
     };
+  }
+  if (priceFilterButton)
+    priceFilterButton.onclick = (event) => changeMinMax();
+  if (priceFilterMin && priceFilterMax) {
+    priceFilterMin.addEventListener("keyup", (event) => {
+      if (event.keyCode === 13)
+        priceFilterMax.focus();
+    });
+    priceFilterMax.addEventListener("keyup", (event) => {
+      if (event.keyCode === 13)
+        changeMinMax();
+    });
+  }
+  if (categoryFilterBlock) {
+    for (let inputElem of categoryFilterBlock)
+      inputElem.onchange = (event) => {
+        if (shop?._filters._categories.has(inputElem.value)) {
+          if (inputElem.checked) {
+            shop._filters.update(categoryFilter, true);
+            shop._filters._categories.set(inputElem.value, true);
+          }
+          else {
+            let categoryHas = false;
+
+            shop._filters._categories.set(inputElem.value, false);
+            for (let value of shop._filters._categories.values())
+              if (value === true) {
+                categoryHas = true;
+                break;
+              }
+            categoryHas === false ? shop._filters.update(categoryFilter, false) : 0;
+          }
+          shop.update();
+          shop.changePage(0, true);
+          console.dir(shop._filters._filters);
+        }
+        if (inputElem.checked && shop?._filters._categories.has(inputElem.value))
+          shop._filters._categories.set(inputElem.value, true);
+        else if (inputElem.checked === false && shop?._filters._categories.has(inputElem.value))
+          shop._filters._categories.set(inputElem.value, false);
+        console.dir(shop._filters._categories);
+      };
+  }
+}
+
+function changeMinMax() {
+  let min = +document.querySelector("[data-event=\"min_price\"]")?.value;
+  let max = +document.querySelector("[data-event=\"max_price\"]")?.value;
+
+  if (isNaN(min) === false && isNaN(max) === false && shop) {
+    shop?._filters._filters.forEach((filter) => {
+      if (filter[0] === priceFilter) {
+        shop._filters._minPrice = min;
+        shop._filters._maxPrice = max;
+        filter[1] = true;
+        shop.update();
+        shop.changePage(0, true);
+      }
+    });
   }
 }
 
@@ -164,7 +222,19 @@ function paginationEvents() {
         else if (command === "next")
           shop.changePage(shop._catalog.currentPage() + 1);
       }
-
     });
   }
+}
+
+function additionEvents() {
+  let goToTop = document.querySelectorAll("[data-event=\"go_to_top\"]");
+
+  for (let button of goToTop)
+    button.onclick = (e) => {
+      window.scrollBy({
+          left: 0,
+          top: -window.scrollY,
+          behavior: 'smooth'
+      });
+    }
 }

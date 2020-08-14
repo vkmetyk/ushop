@@ -15,21 +15,22 @@ class Shop {
   update() {
     this._catalog.build(this, this._storage.products(), this.pageSize, this._filters.filters());
   }
-  changePage(page) {
+  changePage(page, notScroll) {
     let pageIndex = this._catalog.changePage(page);
 
     if (pageIndex !== -1) {
       document.querySelector(".category-products").innerHTML = "";
-      window.scrollTo(0, 0);
-      this.show(pageIndex);
+      if (notScroll === undefined)
+        window.scrollTo(0, 0);
+      this.show(pageIndex, notScroll);
     }
   }
   showMore() {
     this.show(this._catalog.changePage(this._catalog.currentPage() + 1));
   }
-  show(productsForShow) {
+  show(productsForShow, notScroll) {
     if (productsForShow && productsForShow !== -1) {
-      showProducts(productsForShow, this);
+      showProducts(productsForShow, this, notScroll);
       showCart(this._cart);
       showPagination(this);
     }

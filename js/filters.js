@@ -3,7 +3,7 @@
 class Filters {
   constructor(filters, products) {
     this._filters = [];
-    this._categories = new Set;
+    this._categories = new Map;
     this._minPrice = 0;
     this._maxPrice = 0;
     this._searchName = "";
@@ -13,12 +13,15 @@ class Filters {
     });
     products.forEach((elem) => {
       if (elem._category && elem._category.length > 0)
-        this._categories.add(elem._category);
+        this._categories.set(elem.category(), false);
     });
+    setMinMax(this, products);
+    createCategories(this._categories);
   }
-  update(index) {
-    let filter = this._filters[index];
-    filter[1] = !filter[1];
+  update(name, value) {
+    let index = this._filters.findIndex(((filter) => filter[0] === name));
+    if (index !== -1)
+      this._filters[index][1] = Boolean(value);
   }
   filters() {
     let result = [];
@@ -50,24 +53,23 @@ function nameFilter(shop, product) {
 }
 
 function categoryFilter(shop, product) {
-  if (shop?._filters._categories.has(product.category()))
+  let category = shop?._filters._categories.get(product.category());
+
+  if (category === true)
     return true;
 }
 
-function setMinMax(pages) {
+function setMinMax(filters, products) {
   let minElem = document.querySelector("[data-event=\"min_price\"");
   let maxElem = document.querySelector("[data-event=\"max_price\"");
-  let min = pages[0][0].price();
-  let max = pages[0][0].price();
-
-  pages.forEach((products) => {
-    products.forEach((products) => {
-      if (products.price() < min)
-        min = products.price();
-      if (products.price() > max)
-        max = products.price();
-    });
-  })
+  let prices = [];
+  let min = 0;
+  let max = 1;
+console.dir(products);
+  products.forEach((product) => prices.push(product.price()));
+  filters._minPrice = min = Math.min(...prices);
+  filters._maxPrice = max = Math.min(...prices);
+  max = Math.max(...prices);
   if (minElem && maxElem) {
     minElem.value = min;
     minElem.max = max - 1;

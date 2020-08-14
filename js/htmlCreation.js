@@ -1,5 +1,17 @@
 "use strict"
 
+function createCategories(categories) {
+  let container = document.querySelector("#category-pick-block");
+
+  container.innerHTML = "";
+  if (container) {
+    console.dir(categories.keys())
+    for (let category of categories.keys()) {
+      container.insertAdjacentHTML("beforeend", `<label><input type="checkbox" value="${category}"><span>${category}</span></label>`);
+    }
+  }
+}
+
 function showCartProduct(product) {
   let showContainer = document.querySelector(".cart-order-list");
 
@@ -62,19 +74,18 @@ function updateCartProduct(product, count) {
   }
 }
 
-
-function showProducts(productsForShow, shop) {
+function showProducts(productsForShow, shop, notScroll) {
   let showContainer = document.querySelector(".category-products");
 
   if (showContainer) {
-    let scrollPosBefore = window.scrollY;
+    let scrollPosBefore = notScroll === undefined ? window.scrollY : -1;
 
     productsForShow.forEach((product) => {
       let productHtml = createProductHtml(product, shop._cart._productAmount.has(product));
 
       showContainer.insertAdjacentHTML("beforeend", productHtml);
     });
-    if (scrollPosBefore !== window.scrollY && window.scrollY > scrollPosBefore)
+    if (scrollPosBefore !== -1 && scrollPosBefore !== window.scrollY && window.scrollY > scrollPosBefore)
       window.scrollBy(0, -(window.scrollY - scrollPosBefore));
   }
 }

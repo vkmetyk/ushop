@@ -25,7 +25,6 @@ class Catalog {
         size++;
       this._pages[this._currentPage].push(elem);
     });
-    setMinMax(this._pages);
   }
 
   pages() {
