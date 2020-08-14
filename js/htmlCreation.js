@@ -29,20 +29,21 @@ function createCartProduct(product) {
       <div>
         <span>${product.name()}</span>
       </div>
-      <div>
+      <div class="product-price-container">
         <button data-event="decrease">
           <img src="./assets/images/minus.png" alt="-">
         </button>
-        <span class="product-count">
-          1
-        </span>
+        <div class="product-count-container">
+          <span class="product-count">1</span>
+        </div>
         <button data-event="increase">
           <img src="./assets/images/plus.png" alt="+">
         </button>
       </div>
-      <div>
+      <div class="product-order-price-container">
         <span class="product-order-price">${product.price()} uah</span>
       </div>
+      <button class="remove-product" data-event="remove"></button>
     </div>
   `;
 }

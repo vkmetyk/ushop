@@ -1,7 +1,7 @@
 "use strict"
 
 let productList = [
-  {"id":0,"count":10,"name":"Cap","category":"clothes","price":1000},
+  {"id":0,"count":1000,"name":"Cap","category":"clothes","price":1000},
   {"id":1,"count":3,"name":"Cap","category":"clothes","price":700},
   {"id":2,"count":0,"name":"Cap","category":"clothes","price":222},
   {"id":3,"count":5,"name":"Cap","category":"clothes","price":100},

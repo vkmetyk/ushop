@@ -20,6 +20,11 @@ class Cart {
     showCart(this);
     showCartProduct(product);
   }
+  remove(product) {
+      this._productAmount.delete(product);
+      showCart(this);
+      updateCartProduct(product, 0);
+  }
   increase(product) {
     let it = this._productAmount.get(product);
 

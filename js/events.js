@@ -64,6 +64,9 @@ function cartProductEvents(container) {
           else if (ourEvent === "decrease") {
             shop._cart.decrease(shop._catalog.getProduct(+productId));
           }
+          else if (ourEvent === "remove") {
+            shop._cart.remove(shop._catalog.getProduct(+productId));
+          }
         }
       }
     };
