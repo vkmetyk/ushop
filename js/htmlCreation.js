@@ -5,7 +5,6 @@ function createCategories(categories) {
 
   container.innerHTML = "";
   if (container) {
-    console.dir(categories.keys())
     for (let category of categories.keys()) {
       container.insertAdjacentHTML("beforeend", `<label><input type="checkbox" value="${category}"><span>${category}</span></label>`);
     }

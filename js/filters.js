@@ -44,6 +44,13 @@ function priceFilter(shop, product) {
     return true;
 }
 
+function categoryFilter(shop, product) {
+  let category = shop?._filters._categories.get(product.category());
+
+  if (category === true)
+    return true;
+}
+
 function nameFilter(shop, product) {
   if (shop?._filters._searchName != 0) {
     if (product.name().toLowerCase().includes(shop?._filters._searchName.toLowerCase()))
@@ -52,11 +59,19 @@ function nameFilter(shop, product) {
     return true;
 }
 
-function categoryFilter(shop, product) {
-  let category = shop?._filters._categories.get(product.category());
-
-  if (category === true)
-    return true;
+function changeNameFilter(value) {
+  for (let i = 0; i < shop._filters._filters.length; i++) {
+    if (shop._filters._filters[i][0] === nameFilter) {
+      shop._filters._searchName = value;
+      if (shop._filters._searchName.length <= 0) {
+        shop._filters._filters[i][1] = false;
+      } else
+        shop._filters._filters[i][1] = true;
+      break;
+    }
+  }
+  shop.update();
+  shop.changePage(0);
 }
 
 function setMinMax(filters, products) {
@@ -65,7 +80,7 @@ function setMinMax(filters, products) {
   let prices = [];
   let min = 0;
   let max = 1;
-console.dir(products);
+
   products.forEach((product) => prices.push(product.price()));
   filters._minPrice = min = Math.min(...prices);
   filters._maxPrice = max = Math.min(...prices);

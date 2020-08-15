@@ -3,7 +3,11 @@
 <head>
   <title>Ushop</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="description" content="Internet shop">
+  <meta name="keywords" content="shop, unit, ucode, programmer, javascript">
+  <meta name="author" content="vkmetyk">
+  <link rel='icon' href='./assets/images/favicon.png' type='image/x-icon'>
   <!-- icons -->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
@@ -13,13 +17,27 @@
   <!--  styles -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "Ushop",
+      "url": "http://vkmetyk.github.io/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://vkmetyk.github.io/index.html{search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
 </head>
 <body>
   <div class="wrapper">
     <!-- cart drop block -->
     <div class="cart-order-container">
       <div id="cart-order-block">
-
         <div class="cart-order-header">
           <div>
             <span>Goods number: </span>
@@ -40,7 +58,7 @@
       <div class="container py-2">
         <div id="header-menu" class="row">
           <div class="col-12 col-md-4">
-            <a href="index.html" class="logo navbar-brand">
+            <a href="index.html" class="logo navbar-brand row justify-content-center">
               <img src="./assets/images/logo.png" alt="Logo">
             </a>
           </div>
@@ -177,7 +195,6 @@
         </div>
       </div>
     </section>
-
     <footer id="footer">
       <div class="container py-2">
         <div id="footer-menu" class="row">

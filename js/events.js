@@ -75,6 +75,7 @@ function cartProductEvents(container) {
 
 function filterEvents() {
   let available = document.querySelector("#availability-input");
+  let searchInput = document.querySelector(".search-input");
   let search = document.querySelector(".search-button");
   let sorter = document.querySelector(".select-css");
   let priceFilterButton = document.querySelector("[data-event=\"price_filter\"]");
@@ -89,23 +90,19 @@ function filterEvents() {
       shop.changePage(0, true);
     };
   }
+  if (searchInput) {
+    searchInput.addEventListener("keyup", (event) => {
+      if (event.keyCode === 13) {
+        changeNameFilter(event.target.value.trim());
+      }
+    });
+  }
   if (search) {
     search.onclick = (event) => {
       let input = event.target?.parentElement?.parentElement?.querySelector(".search-input");
 
-      if (input !== undefined) {
-        for (let i = 0; i < shop._filters._filters.length; i++) {
-          if (shop._filters._filters[i][0] === nameFilter) {
-            shop._filters._searchName = input.value.trim();
-            if (shop._filters._searchName.length <= 0) {
-              shop._filters._filters[i][1] = false;
-            } else
-              shop._filters._filters[i][1] = true;
-            break;
-          }
-        }
-        shop.update();
-        shop.changePage(0);
+      if (input) {
+        changeNameFilter(input.value.trim());
       }
     };
   }
@@ -149,13 +146,11 @@ function filterEvents() {
           }
           shop.update();
           shop.changePage(0, true);
-          console.dir(shop._filters._filters);
         }
         if (inputElem.checked && shop?._filters._categories.has(inputElem.value))
           shop._filters._categories.set(inputElem.value, true);
         else if (inputElem.checked === false && shop?._filters._categories.has(inputElem.value))
           shop._filters._categories.set(inputElem.value, false);
-        console.dir(shop._filters._categories);
       };
   }
 }

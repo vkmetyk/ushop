@@ -18,7 +18,7 @@ class Catalog {
     });
     products.forEach((elem) => {
       if (size >= pageSize) {
-        size = 0;
+        size = 1;
         this._currentPage++;
         this._pages[this._currentPage] = [];
       } else

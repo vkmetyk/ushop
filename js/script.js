@@ -27,4 +27,4 @@ let products = productList.map((product) => {
 });
 let filters = [availableFilter, priceFilter, nameFilter, categoryFilter];
 
-let shop = new Shop(products, 12, filters);
+let shop = new Shop(products, 6, filters);

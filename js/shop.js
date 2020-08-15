@@ -5,7 +5,7 @@ class Shop {
     this._storage = new Storage(products);
     this._filters = new Filters(filters, this._storage._products);
     this._catalog = new Catalog();
-    this._cart = new Cart();
+    this._cart = new Cart(this);
     this.pageSize = pageSize ?? 0;
 
     this._catalog.build(this, this._storage.products(), this.pageSize, this._filters.filters());

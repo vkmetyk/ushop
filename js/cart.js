@@ -1,9 +1,10 @@
 "use strict"
 
 class Cart {
-  constructor() {
+  constructor(shop) {
     this._productAmount = new Map();
     this._totalPrice = 0;
+    getAllFromLocalStorage(shop, this);
   }
   add(product) {
     let it = this._productAmount.get(product);
@@ -11,10 +12,12 @@ class Cart {
     if (it) { // if product already exists in cart
       if (product.count() > it) {
         this._productAmount.set(product, it + 1);
+        setToLocalStorage(product.id(), it + 1);
         this._totalPrice += product.price();
       }
     } else {
       this._productAmount.set(product, 1);
+      setToLocalStorage(product.id(), 1);
       this._totalPrice += product.price();
     }
     showCart(this);
@@ -24,12 +27,14 @@ class Cart {
       this._productAmount.delete(product);
       showCart(this);
       updateCartProduct(product, 0);
+      removeFromLocalStorage(product.id());
   }
   increase(product) {
     let it = this._productAmount.get(product);
 
     if (it && product.count() > it) {
       this._productAmount.set(product, it + 1);
+      setToLocalStorage(product.id(), it + 1);
       this._totalPrice += product.price();
       showCart(this);
       updateCartProduct(product, it + 1);
@@ -43,12 +48,15 @@ class Cart {
     if (it) {
       it--;
       this._productAmount.set(product, it);
-      if (it < 1) {
-        this._productAmount.delete(product);
-      }
+      setToLocalStorage(product.id(), it);
       this._totalPrice -= product.price();
-      showCart(this);
-      updateCartProduct(product, it);
+      if (it < 1) {
+        this.remove(product);
+        removeFromLocalStorage(product.id());
+      } else {
+        showCart(this);
+        updateCartProduct(product, it);
+      }
     }
   }
   count() {
@@ -57,4 +65,34 @@ class Cart {
   totalPrice() {
     return this._totalPrice;
   }
+}
+
+function getAllFromLocalStorage(shop, cart) {
+  let keys = Object.keys(localStorage);
+
+  for (let key of keys) {
+    let product = shop._storage.findProduct(+key);
+    if (product) {
+      let count = +localStorage.getItem(key);
+
+      if (count > 0) {
+        cart._productAmount.set(product, count);
+        cart._totalPrice += (product.price() * count);
+        showCart(cart);
+        showCartProduct(product);
+        updateCartProduct(product, count);
+      }
+    }
+  }
+}
+
+function setToLocalStorage(id, count) {
+  if (count > 0)
+    localStorage.setItem("" + id, "" + count);
+  else
+    removeFromLocalStorage(id);
+}
+
+function removeFromLocalStorage(id) {
+  localStorage.removeItem("" + id);
 }
