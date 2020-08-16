@@ -86,9 +86,14 @@ function setMinMax(filters, products) {
   filters._maxPrice = max = Math.min(...prices);
   max = Math.max(...prices);
   if (minElem && maxElem) {
-    minElem.value = min;
     minElem.max = max - 1;
-    maxElem.value = max;
     maxElem.max = max;
+    minElem.placeholder = min;
+    maxElem.placeholder = max;
+    // minElem.value = min;
+    maxElem.value = max;
+    // minElem.maxLength = max.toString().length;
+    // maxElem.maxLength = max.toString().length;
+    console.log(max.toString().length);
   }
 }

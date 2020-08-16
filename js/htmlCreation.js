@@ -81,7 +81,7 @@ function showProducts(productsForShow, shop, notScroll) {
     let scrollPosBefore = notScroll === undefined ? window.scrollY : -1;
 
     productsForShow.forEach((product) => {
-      let productHtml = createProductHtml(product, shop._cart._productAmount.has(product));
+      let productHtml = createProductHtml(product, shop._cart._productAmount.get(product));
 
       showContainer.insertAdjacentHTML("beforeend", productHtml);
     });
@@ -91,7 +91,7 @@ function showProducts(productsForShow, shop, notScroll) {
 }
 
 function createProductHtml(product, countInCart) {
-  let isAvailable = product.count() - countInCart > 0 ? 1 : 0;
+  let isAvailable = product.count() - (countInCart ?? 0) > 0 ? 1 : 0;
 
   return `
       <div class="product-container" data-id="${product.id()}">
@@ -110,8 +110,8 @@ function createProductHtml(product, countInCart) {
               <span class="${isAvailable ? "true" : "false"}">${isAvailable ? "available" : "not available"}</span>
             </div>
             <div class="add-to-cart-block">
-              <button class="${isAvailable ? "add-to-cart" : ""}">
-                <img src="assets/images/${countInCart > 0 ? "added-to-cart.png" : isAvailable ? "add-to-cart.png" : "cancel.png"}" alt="Add to cart">
+              <button class="${(countInCart ?? 0) <= 0 ? "add-to-cart" : ""}">
+                <img src="assets/images/${(countInCart ?? 0) > 0 ? "added-to-cart.png" : isAvailable ? "add-to-cart.png" : "cancel.png"}" alt="Add to cart">
               </button>
             </div>
           </div>

@@ -8,26 +8,28 @@ class Cart {
   }
   add(product) {
     let it = this._productAmount.get(product);
-
+    console.dir(it);
     if (it) { // if product already exists in cart
       if (product.count() > it) {
         this._productAmount.set(product, it + 1);
         setToLocalStorage(product.id(), it + 1);
         this._totalPrice += product.price();
+        updateCartProduct(product, it + 1);
       }
     } else {
       this._productAmount.set(product, 1);
       setToLocalStorage(product.id(), 1);
       this._totalPrice += product.price();
+      showCart(this);
+      showCartProduct(product);
     }
-    showCart(this);
-    showCartProduct(product);
   }
   remove(product) {
-      this._productAmount.delete(product);
-      showCart(this);
-      updateCartProduct(product, 0);
-      removeFromLocalStorage(product.id());
+    this._totalPrice -= product.price() * this._productAmount.get(product);
+    this._productAmount.delete(product);
+    updateCartProduct(product, 0);
+    removeFromLocalStorage(product.id());
+    showCart(this);
   }
   increase(product) {
     let it = this._productAmount.get(product);
