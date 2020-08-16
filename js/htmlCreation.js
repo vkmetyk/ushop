@@ -91,7 +91,7 @@ function showProducts(productsForShow, shop, notScroll) {
 }
 
 function createProductHtml(product, countInCart) {
-  let isAvailable = product.count() - (countInCart ?? 0) > 0 ? 1 : 0;
+  let isAvailable = product.count() > 0 ? 1 : 0;
 
   return `
       <div class="product-container" data-id="${product.id()}">
