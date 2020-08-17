@@ -7,8 +7,13 @@ All page elements are based on products (pagination, breadcrumbs, a list of cate
 What realized:
 
 -laptop and mobile adaptivity
+
 -filters (filter by category, name, price and availability
+
 -sorts
+
 -breadcrumps
+
 -padination
+
 -goToTop button
