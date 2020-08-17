@@ -601,9 +601,9 @@ header {
 }
 
 #category-pick-block > label > span:after {
-    background-color: #fff;
+    /*background-image: url("../assets/images/added-to-cart.png");*/
+    background-size: cover;
     background-image: url("../assets/images/added-to-cart.png");
-    background-size: contain;
     border: 1px solid #a6d969;
     border-radius: 9px;
     content: "";
@@ -615,8 +615,39 @@ header {
     height: 20px;
 }
 
-#category-pick-block > label > input:checked + span::after {
-    display: block;
+#category-pick-block > label > input:checked + span::before {background: #fff;}
+#category-pick-block > label > input:checked + span::after {display: block;}
+
+#availability-block > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#availability-input {
+    display: none;
+}
+
+.availability-input-button {
+    align-self: baseline;
+    background: #fff;
+    border: 1px solid #a7d968;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    position: relative;
+}
+
+#availability-input:checked + .availability-input-button::after {
+    background: url("../assets/images/added-to-cart.png");
+    content: "";
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: calc(50% - 10px);
+    top: calc(50% - 10px);
 }
 
 /**/
