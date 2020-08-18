@@ -22,9 +22,7 @@ What realized:
 Desktop, tablet and mobile preview:
 
 ![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-1.png)
-
 ![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-2.png)
-
 ![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-3.png)
 
 Desktop and mobile cart preview:
