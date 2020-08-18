@@ -19,18 +19,10 @@ What realized:
 -goToTop button
 
 
-Desktop, tablet and mobile preview:
+Desktop: menu, cart and padination preview:
 
 ![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-1.png)
-![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-2.png)
-![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-3.png)
-
-Desktop and mobile cart preview:
 
 ![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-4.png)
-
-![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-5.png)
-
-Padination preview:
 
 ![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-6.png)
