@@ -21,4 +21,4 @@ What realized:
 
 Desktop preview:
 
-![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-1.png)
+![alt text](https://github.com/vkmetyk/ushop/blob/master/preview.png)
