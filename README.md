@@ -6,7 +6,7 @@ All page elements are based on products (pagination, breadcrumbs, a list of cate
 
 What realized:
 
--laptop and mobile adaptivity
+-tablet and mobile adaptivity
 
 -filters (filter by category, name, price and availability
 
@@ -17,3 +17,8 @@ What realized:
 -padination
 
 -goToTop button
+
+
+Tablet and mobile preview:
+
+![alt text]()
