@@ -19,10 +19,6 @@ What realized:
 -goToTop button
 
 
-Desktop: menu, cart and padination preview:
+Desktop preview:
 
 ![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-1.png)
-
-![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-4.png)
-
-![alt text](https://github.com/vkmetyk/ushop/blob/master/view-examples/img-6.png)
