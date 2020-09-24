@@ -90,10 +90,6 @@ function setMinMax(filters, products) {
     maxElem.max = max;
     minElem.placeholder = min;
     maxElem.placeholder = max;
-    // minElem.value = min;
     maxElem.value = max;
-    // minElem.maxLength = max.toString().length;
-    // maxElem.maxLength = max.toString().length;
-    console.log(max.toString().length);
   }
 }

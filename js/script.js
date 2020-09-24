@@ -1,21 +1,13 @@
 "use strict"
 
-async function getJson() {
-  let result;
-  let json = fetch("../assets/products.json")
-    .then((resp) => resp.json())
-    .then((data) => result = data.products);
+async function getProducts() {
+  let response = await fetch("../assets/products.json")
 
-  return Promise.resolve(json).then(() => {
-    return result;
-  });
-}
+  if (response.status == 200) {
+    let json = await response.json();
 
-async function getProducts(productList) {
-  let json = await getJson();
-
-  if (json) {
-    return json;
+    if (json?.products)
+      return json.products;
   } else {
     return [
       {"id": 10000, "count": 1, "name": "Test (no image)", "category": "", "price": 0, "image": ""},
@@ -24,7 +16,8 @@ async function getProducts(productList) {
   }
 }
 
-function createShop(productList) {
+async function createShop() {
+  let productList = await getProducts();
   let products = productList.map((product) => {
     return new Product(product.id, product.count, product.name, product.category, product.price, product.image);
   });
@@ -34,8 +27,4 @@ function createShop(productList) {
     return new Shop(products, 12, filters);
 }
 
-let shop;
-let result = getProducts();
-Promise.resolve(result).then((products) => {
-  shop = createShop(products);
-});
+createShop();

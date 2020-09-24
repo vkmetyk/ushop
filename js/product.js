@@ -29,11 +29,9 @@ class Product {
   }
   buy(count) {
     if (count > this._count) {
-      // throw "ERROR";
-      console.log("Error");
-      return;
-    }
-    this._count -= count;
+      throw new Error("Buy count is bigger than could be");
+    } else
+      this._count -= count;
   }
   add(count) {
     this._count += count;
