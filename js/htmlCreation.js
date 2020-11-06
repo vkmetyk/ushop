@@ -23,20 +23,20 @@ function createCartProduct(product) {
   return `
       <div class="product-in-cart" data-order_id="${product.id()}">
       <div class="img-block">
-        <img src="${product.image() && product.image().length ? product.image() : "/ushop/assets/images/default.png"}"  alt="image">
+        <img src="${product.image() && product.image().length ? product.image() : "./assets/images/default.png"}"  alt="image">
       </div>
       <div>
         <span>${product.name()}</span>
       </div>
       <div class="product-price-container">
         <button data-event="decrease">
-          <img src="/ushop/assets/images/minus.png" alt="-">
+          <img src="./assets/images/minus.png" alt="-">
         </button>
         <div class="product-count-container">
           <span class="product-count">1</span>
         </div>
         <button data-event="increase">
-          <img src="/ushop/assets/images/plus.png" alt="+">
+          <img src="./assets/images/plus.png" alt="+">
         </button>
       </div>
       <div class="product-order-price-container">
@@ -67,7 +67,7 @@ function updateCartProduct(product, count) {
 
         if (button) {
           button.classList.add("add-to-cart");
-          button.querySelector("img").src = "/ushop/assets/images/add-to-cart.png";
+          button.querySelector("img").src = "./assets/images/add-to-cart.png";
         }
       }
     }
@@ -99,7 +99,7 @@ function createProductHtml(product, countInCart) {
           <a href="#">
             <span class="product-id">code: ${product.id()}</span>
             <div class="product-image">
-              <img src="${product.image() && product.image().length > 0 ? product.image() : "assets/images/default.png"}" alt="Image" class="img-fluid">
+              <img src="${product.image() && product.image().length > 0 ? product.image() : "./assets/images/default.png"}" alt="Image" class="img-fluid">
             </div>
           </a>
           <span class="product-name">${product.name()}</span>
@@ -111,7 +111,7 @@ function createProductHtml(product, countInCart) {
             </div>
             <div class="add-to-cart-block">
               <button class="${(countInCart ?? 0) <= 0 ? "add-to-cart" : ""}">
-                <img src="assets/images/${(countInCart ?? 0) > 0 ? "added-to-cart.png" : isAvailable ? "add-to-cart.png" : "cancel.png"}" alt="Add to cart">
+                <img src="./assets/images/${(countInCart ?? 0) > 0 ? "added-to-cart.png" : isAvailable ? "add-to-cart.png" : "cancel.png"}" alt="Add to cart">
               </button>
             </div>
           </div>

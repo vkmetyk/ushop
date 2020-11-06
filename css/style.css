@@ -1,19 +1,19 @@
 @font-face {
     font-family: 'Gotham Pro Light';
-    src: url('/ushop/assets/fonts/GothamPro-Light.eot');
-    src: url('/ushop/assets/fonts/GothamPro-Light.eot?#iefix') format('embedded-opentype'),
-    url('/ushop/assets/fonts/GothamPro-Light.woff') format('woff'),
-    url('/ushop/assets/fonts/GothamPro-Light.ttf') format('truetype');
+    src: url('../assets/fonts/GothamPro-Light.eot');
+    src: url('../assets/fonts/GothamPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/GothamPro-Light.woff') format('woff'),
+    url('../assets/fonts/GothamPro-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gotham Pro Regular';
-    src: url('/ushop/assets/fonts/GothamPro.eot');
-    src: url('/ushop/assets/fonts/GothamPro.eot?#iefix') format('embedded-opentype'),
-    url('/ushop/assets/fonts/GothamPro.woff') format('woff'),
-    url('/ushop/assets/fonts/GothamPro.ttf') format('truetype');
+    src: url('../assets/fonts/GothamPro.eot');
+    src: url('../assets/fonts/GothamPro.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/GothamPro.woff') format('woff'),
+    url('../assets/fonts/GothamPro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -340,7 +340,7 @@ header {
 .remove-product:hover {
     height: 100%;
     width: 26px;
-    background-image: url("/ushop/assets/images/trash.svg");
+    background-image: url("./assets/images/trash.svg");
     background-size: 26px;
     background-repeat: no-repeat;
     background-position: center;
@@ -370,7 +370,7 @@ header {
 }
 
 .breadcrumbs-elem:not(:last-child):after {
-    background: url("/ushop/assets/images/right-arrow.png") no-repeat right;
+    background: url("./assets/images/right-arrow.png") no-repeat right;
     background-size: contain;
     content: "";
     margin: 0 5px;
@@ -477,7 +477,7 @@ header {
 
 .filter-button:before, .filter-show-button:before {
     transition: 0.2s;
-    background-image: url("/ushop/assets/images/down-arrow.png");
+    background-image: url("../assets/images/down-arrow.png");
     background-size: 18px;
     background-repeat: no-repeat;
     background-position: right 15px center;
@@ -602,7 +602,7 @@ header {
 
 #category-pick-block > label > span:after {
     background-size: cover;
-    background-image: url("/ushop/assets/images/added-to-cart.png");
+    background-image: url("../assets/images/added-to-cart.png");
     border: 1px solid #a6d969;
     border-radius: 9px;
     content: "";
@@ -639,7 +639,7 @@ header {
 }
 
 #availability-input:checked + .availability-input-button::after {
-    background: url("/ushop/assets/images/added-to-cart.png");
+    background: url("./assets/images/added-to-cart.png");
     content: "";
     background-size: cover;
     width: 20px;
@@ -1021,7 +1021,7 @@ footer a {
     .remove-product {
         height: 100%;
         width: 26px;
-        background-image: url("/ushop/assets/images/trash.svg");
+        background-image: url("./assets/images/trash.svg");
         background-size: 26px;
         background-repeat: no-repeat;
         background-position: center;

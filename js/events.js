@@ -1,15 +1,15 @@
 "use strict"
 
-function addEvents() {
-  cartEvents();
-  filterEvents();
-  productEvents();
-  showMoreEvents();
-  paginationEvents();
-  additionEvents();
+function addEvents(shop) {
+  cartEvents(shop);
+  filterEvents(shop);
+  productEvents(shop);
+  showMoreEvents(shop);
+  paginationEvents(shop);
+  additionEvents(shop);
 }
 
-function cartEvents() {
+function cartEvents(shop) {
   let cartIcon = document.querySelector(".cart-container");
   let cartOrderContainer = document.querySelector(".cart-order-container");
   let cartClose = document.querySelectorAll(".cart-close");
@@ -73,7 +73,7 @@ function cartProductEvents(container) {
   }
 }
 
-function filterEvents() {
+function filterEvents(shop) {
   let available = document.querySelector("#availability-input");
   let searchInput = document.querySelector(".search-input");
   let search = document.querySelector(".search-button");
@@ -172,7 +172,7 @@ function changeMinMax() {
   }
 }
 
-function productEvents() {
+function productEvents(shop) {
   let catalog = document.querySelector(".category-products");
 
   catalog.addEventListener("click", (event) => {
@@ -188,7 +188,7 @@ function productEvents() {
 
         if (product.count() > 0) {
           shop._cart.add(product);
-          button.querySelector("img").src = "/ushop/assets/images/added-to-cart.png";
+          button.querySelector("img").src = "./assets/images/added-to-cart.png";
         }
       }
       button.classList.remove("add-to-cart");
@@ -196,7 +196,7 @@ function productEvents() {
   });
 }
 
-function showMoreEvents() {
+function showMoreEvents(shop) {
   let showMore = document.querySelector("button.show-more");
 
   showMore.addEventListener("click", (event) => {
@@ -204,7 +204,7 @@ function showMoreEvents() {
   });
 }
 
-function paginationEvents() {
+function paginationEvents(shop) {
   let paginationList = document.querySelector(".pagination");
 
   if (paginationList !== undefined) {
@@ -224,7 +224,7 @@ function paginationEvents() {
   }
 }
 
-function additionEvents() {
+function additionEvents(shop) {
   let goToTop = document.querySelectorAll("[data-event=\"go_to_top\"]");
 
   for (let button of goToTop)

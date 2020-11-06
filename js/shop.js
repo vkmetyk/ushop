@@ -10,7 +10,7 @@ class Shop {
 
     this._catalog.build(this, this._storage.products(), this.pageSize, this._filters.filters());
     this.changePage(0);
-    addEvents();
+    addEvents(this);
   }
   update() {
     this._catalog.build(this, this._storage.products(), this.pageSize, this._filters.filters());
