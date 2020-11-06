@@ -1,7 +1,7 @@
 "use strict"
 
 async function getProducts() {
-  let response = await fetch("../assets/products.json")
+  let response = await fetch("/ushop/assets/products.json")
 
   if (response.status == 200) {
     let json = await response.json();

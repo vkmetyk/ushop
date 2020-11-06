@@ -188,7 +188,7 @@ function productEvents() {
 
         if (product.count() > 0) {
           shop._cart.add(product);
-          button.querySelector("img").src = "./assets/images/added-to-cart.png";
+          button.querySelector("img").src = "/ushop/assets/images/added-to-cart.png";
         }
       }
       button.classList.remove("add-to-cart");
